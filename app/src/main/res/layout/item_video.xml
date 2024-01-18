@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_80sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginVertical="@dimen/_8sdp"
+    android:layout_marginHorizontal="@dimen/_16sdp"
+    app:cardCornerRadius="@dimen/_20sdp"
+    app:strokeWidth="0dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_thumbnail"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="match_parent"
+            app:strokeWidth="0dp">
+
+            <ImageView
+                android:id="@+id/video_thumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:id="@+id/tv_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12:40"
+                android:layout_toEndOf="@id/cv_thumbnail"
+                android:textSize="@dimen/_12ssp"
+                android:layout_margin="@dimen/_8sdp"
+                android:textColor="@color/white"
+                android:layout_gravity="bottom|end"
+                android:layout_alignParentBottom="true"
+                android:fontFamily="@font/san_regular"
+                android:layout_marginBottom="@dimen/_16sdp"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sinh viên học đến 12 giờ đêm mới đi ngủ.mp4"
+            android:layout_toEndOf="@id/cv_thumbnail"
+            android:textSize="@dimen/_12ssp"
+            android:paddingEnd="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:textColor="@color/black"
+            android:maxLines="3"
+            android:fontFamily="@font/san_bold"/>
+
+        <ImageView
+            android:id="@+id/checker"
+            android:layout_width="@dimen/_16sdp"
+            android:layout_height="@dimen/_16sdp"
+            android:src="@drawable/green_check"
+            android:layout_toStartOf="@id/tv_name"
+            android:layout_margin="@dimen/_8sdp"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

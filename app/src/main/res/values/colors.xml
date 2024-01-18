@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="grey">#999999</color>
+    <color name="grey_20">#BFAAAAAA</color>
+    <color name="pink_clear">#FFC0CB</color>
+    <color name="blue_cal_button">#97E7F5</color>
+    <color name="red_equal_button">#FF0000</color>
+</resources>
