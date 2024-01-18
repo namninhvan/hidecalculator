@@ -14,18 +14,6 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="@dimen/_16sdp"/>
 
-    <TextView
-        android:id="@+id/count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/all"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="@dimen/_18ssp"
-        android:textColor="@color/black"
-        android:layout_marginTop="@dimen/_16sdp"
-        android:layout_marginEnd="@dimen/_16sdp"
-        android:fontFamily="@font/san_bold"/>
 
     <TextView
         android:id="@+id/title"

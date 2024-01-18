@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Environment
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.techbmt.hidecalculator.core.BaseActivity
@@ -48,8 +49,15 @@ class ImagesActivity : BaseActivity<ActivityImagesBinding>(), OnClickImage {
             imageViewModel.apply {
                 getImagePath(this@ImagesActivity)
                 listImages.observe(this@ImagesActivity) { listImages ->
-                    imageAdapter.submitList(listImages[indexFolder].path)
-                    Log.i("size", listImages.size.toString())
+                    if(listImages.isEmpty()) {
+                        binding.layoutEmpty.visibility = View.VISIBLE
+                        binding.rcvImages.visibility = View.GONE
+                    } else {
+                        binding.layoutEmpty.visibility = View.GONE
+                        binding.rcvImages.visibility = View.VISIBLE
+                        imageAdapter.submitList(listImages[indexFolder].path)
+                        Log.i("size", listImages.size.toString())
+                    }
                 }
                 binding.rcvImages.adapter = imageAdapter
             }
@@ -61,14 +69,18 @@ class ImagesActivity : BaseActivity<ActivityImagesBinding>(), OnClickImage {
 
 
         binding.ivAdd.setOnClickListener {
-            for (i in 0 until listImageSelected.size) {
-                moveImageFile(listImageSelected[i], getFileNames(listImageSelected)[i])
+            if(listImageSelected.isEmpty()) {
+                Toast.makeText(this@ImagesActivity, "Select image to hide", Toast.LENGTH_SHORT).show()
+            } else {
+                for (i in 0 until listImageSelected.size) {
+                    moveImageFile(listImageSelected[i], getFileNames(listImageSelected)[i])
+                }
+                Log.i("list", listImageSelected.toString())
+                val intent = Intent(this, HiddenFileActivity::class.java)
+                startActivity(intent)
+                Toast.makeText(this, "Hidden successfully", Toast.LENGTH_SHORT).show()
+                finish()
             }
-            Log.i("list", listImageSelected.toString())
-            val intent = Intent(this, HiddenFileActivity::class.java)
-            startActivity(intent)
-            Toast.makeText(this, "Hidden successfully", Toast.LENGTH_SHORT).show()
-            finish()
         }
     }
 

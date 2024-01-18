@@ -6,7 +6,9 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Environment
 import android.util.Log
+import android.view.View
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import com.techbmt.hidecalculator.core.BaseActivity
 import com.techbmt.hidecalculator.databinding.ActivityVideoBinding
@@ -37,22 +39,29 @@ class VideoActivity : BaseActivity<ActivityVideoBinding>() {
         videoViewModel.apply {
             getVideoPath(this@VideoActivity)
             listVideos.observe(this@VideoActivity) {
-                mAdapter = VideoAdapter(object : OnClickVideo {
-                    override fun clickVideo(video: VideoModel) {
-                        if (!listSelectedVideos.contains(video)) {
-                            listSelectedVideos.add(video)
+                if (it.isEmpty()) {
+                    binding.layoutEmpty.visibility = View.VISIBLE
+                    binding.rcvVideos.visibility = View.GONE
+                } else {
+                    binding.layoutEmpty.visibility = View.GONE
+                    binding.rcvVideos.visibility = View.VISIBLE
+                    mAdapter = VideoAdapter(object : OnClickVideo {
+                        override fun clickVideo(video: VideoModel) {
+                            if (!listSelectedVideos.contains(video)) {
+                                listSelectedVideos.add(video)
+                            }
                         }
-                    }
 
-                    override fun onSecondClick(video: VideoModel) {
-                        if (listSelectedVideos.contains(video)) {
-                            listSelectedVideos.remove(video)
+                        override fun onSecondClick(video: VideoModel) {
+                            if (listSelectedVideos.contains(video)) {
+                                listSelectedVideos.remove(video)
+                            }
                         }
-                    }
 
-                }, 1)
-                mAdapter.submitList(it)
-                binding.rcvVideos.adapter = mAdapter
+                    }, 1)
+                    mAdapter.submitList(it)
+                    binding.rcvVideos.adapter = mAdapter
+                }
             }
             binding.ivAdd.setOnClickListener {
                 if (listSelectedVideos.isEmpty()) {
