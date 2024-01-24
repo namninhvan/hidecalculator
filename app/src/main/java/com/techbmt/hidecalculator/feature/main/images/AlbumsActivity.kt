@@ -83,4 +83,5 @@ class AlbumsActivity : BaseActivity<ActivityAlbumsBinding>(), IClickOnFolder {
         startActivity(intent)
         finish()
     }
+
 }

@@ -9,7 +9,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.techbmt.hidecalculator"
+        applicationId = "com.hidemedia.hidecalculator"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -69,6 +69,9 @@ dependencies {
     //Glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.14.2")
+
+    implementation ("com.google.firebase:firebase-crashlytics-buildtools:2.9.9")
+    implementation ("com.android.billingclient:billing:6.1.0")
 
 
 }

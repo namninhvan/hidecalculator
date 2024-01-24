@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HideCalculator</string>
+    <string name="app_name">Calculator - Hide Media</string>
     <string name="ac">AC</string>
     <!--    <string name="round_bracket">( )</string>-->
     <!--    <string name="percent">%</string>-->
@@ -68,4 +68,5 @@
     <string name="ask_delete_hidden">You will not be able to recover the hidden files!</string>
     <string name="msg_delete_hidden">Delete hidden file</string>
     <string name="saved_video">Saved Video</string>
+    <string name="message_purchase_one">%s</string>
 </resources>

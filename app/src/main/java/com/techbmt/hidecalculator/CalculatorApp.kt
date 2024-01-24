@@ -20,6 +20,10 @@ class CalculatorApp : Application() {
         super.onCreate()
         prefs = MyPreference(this)
         instance = this
+        if (!prefs.isFirstInstall()) {
+            prefs.setFirstInstall(true)
+            prefs.setValueCoin(30)
+        }
     }
 
     fun getMyPreference(): MyPreference {
